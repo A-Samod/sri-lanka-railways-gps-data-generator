@@ -10,16 +10,16 @@
    
 2. **Install dependencies:**
    ```bash
-    npm install
+   npm install
    ```
 4. **Set up environment variables:**
    ```bash
-    BACKEND_API_URL=http://localhost:5000/api/v1
+   BACKEND_API_URL=http://localhost:5000/api/v1
    ```
    ```bash
    INTERVAL_MS=60000  # Interval for GPS data transmission (in milliseconds)
    ```
 5. **Start the application:**
    ```bash
-    npm start
+   npm start
    ```
