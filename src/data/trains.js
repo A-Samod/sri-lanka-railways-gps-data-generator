@@ -1,16 +1,4 @@
-const trains = [
-    { trainId: "T001", trainName: "Udarata Menike", routeId: "R001" },
-    { trainId: "T002", trainName: "Podi Menike", routeId: "R001" },
-    { trainId: "T003", trainName: "Sri Lanka Railways Express", routeId: "R001" },
-    { trainId: "T004", trainName: "Ruhunu Kumari", routeId: "R002" },
-    { trainId: "T005", trainName: "Galu Kumari", routeId: "R002" },
-    { trainId: "T006", trainName: "Dakshina Lanka", routeId: "R002" },
-    { trainId: "T007", trainName: "Yarl Devi", routeId: "R003" },
-    { trainId: "T008", trainName: "Intercity Express", routeId: "R003" },
-    { trainId: "T009", trainName: "Uttara Devi", routeId: "R003" },
-    { trainId: "T010", trainName: "Northern Express", routeId: "R003" }
-  ];
-  
+
   const routes = {
     R001: [
       { lat: 6.9271, lon: 79.8612 }, // Colombo Fort
@@ -29,5 +17,5 @@ const trains = [
     ]
   };
   
-  module.exports = { trains, routes };
+  module.exports = { routes };
   

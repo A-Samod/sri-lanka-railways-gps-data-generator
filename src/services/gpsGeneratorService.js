@@ -1,6 +1,7 @@
 const axios = require('axios');
-const { trains, routes } = require('../data/trains');
+const { routes } = require('../data/trains');
 const config = require('../config/config');
+const Train = require('../models/trainModel');
 
 //Generates random GPS data for a given route.
 const generateGpsData = (route) => {
@@ -26,14 +27,20 @@ const sendGpsData = async (train, gpsData) => {
 };
 
 //Starts the simulation of GPS data generation and transmission.
-const startSimulation = () => {
-  setInterval(() => {
-    trains.forEach(train => {
-      const route = routes[train.routeId];
-      const gpsData = generateGpsData(route);
-      sendGpsData(train, gpsData);
-    });
-  }, config.intervalMs);
+const startSimulation =  async() => {
+  try {
+    const trains = await Train.find(); // Retrieve all train records from the database
+
+    setInterval(() => {
+      trains.forEach(train => {
+        const route = routes[train.routeId];
+        const gpsData = generateGpsData(route);
+        sendGpsData(train, gpsData);
+      });
+    }, config.intervalMs);
+  } catch (error) {
+    console.error('Failed to fetch trains from the database:', error.message);
+  }
 };
 
 module.exports = { startSimulation };
